@@ -2,59 +2,40 @@ package com.serva4ok.Egator.controller;
 
 
 import com.serva4ok.Egator.exception.NotFoundException;
+import com.serva4ok.Egator.model.Exercise;
+import com.serva4ok.Egator.represitory.ExerciseReprository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.lang.reflect.Array;
+import java.util.*;
 
 @RestController
 @RequestMapping("message")
 
 public class MessageController {
-    private int counter = 4;
-    private List<Map<String, String>> message = new ArrayList<Map<String, String>>(){{
-        add(new HashMap<String, String>() {{put("id","1"); put("text","first message");}});
-        add(new HashMap<String, String>() {{put("id","2"); put("text","second message");}});
-        add(new HashMap<String, String>() {{put("id","3"); put("text","third message");}});
+    @Autowired
+    ExerciseReprository reprository;
 
+    @RequestMapping("/save")
+    public String process(){
 
-    }};
-    @GetMapping
-    public List<Map<String, String>> list(){
-        return message;
-    }
-    @GetMapping("{id}")
-    public Map<String,String> getOne(@PathVariable String id){
-        return getMessage(id);
+        reprository.save(Arrays.asList(new Exercise("Укажите номера предложений, в которых верно передана ГЛАВНАЯ информация, содержащаяся в тексте. Запишите номера этих предложений.","Otvet1 \n Otvet2\n Otvet3 \n Otvet4 \n","24","(1)В некоторых моделях современных автомобилей раскрытие подушек безопасности при непристёгнутых ремнях автоматически блокируется. (2)<…> срабатывание подушек, происходящее с огромной скоростью, сродни сильному удару. (3)Если тело непристёгнутого человека в момент аварии не будет зафиксировано ремнём и сместится в сторону, подушка не только окажется плохим помощником, но и сама может стать причиной серьёзной травмы."), new Exercise("Самостоятельно подберите сочетание слов, которое должно быть на месте пропуска во втором предложении?","","деловтомчто","(1)В некоторых моделях современных автомобилей раскрытие подушек безопасности при непристёгнутых ремнях автоматически блокируется. (2)<…> срабатывание подушек, происходящее с огромной скоростью, сродни сильному удару. (3)Если тело непристёгнутого человека в момент аварии не будет зафиксировано ремнём и сместится в сторону, подушка не только окажется плохим помощником, но и сама может стать причиной серьёзной травмы."));
+        return "Done";
     }
 
-    private Map<String, String> getMessage(@PathVariable String id) {
-        return message.stream()
-                .filter(message -> message.get("id").equals(id))
-                .findFirst()
-                .orElseThrow(NotFoundException::new);
+    @RequestMapping("/findall")
+    public String findAll(){
+        String result = "";
+
+        for(Exercise cust : reprository.findAll()){
+            result += cust.toString() + "<br>";
+        }
+
+        return result;
     }
 
-    @PostMapping
-    public Map<String,String> create(@RequestBody Map<String,String> messag){
-        messag.put("id",String.valueOf(counter++));
-        message.add(messag);
-        return messag;
-    }
-    @PutMapping("{id}")
-    public Map<String,String> update(@PathVariable String id, @RequestBody Map<String,String> messag){
-        Map<String,String> massegeFromDB = getMessage(id);
-        massegeFromDB.putAll(messag);
-        massegeFromDB.put("id",id);
-        return massegeFromDB;
-    }
-    @DeleteMapping("{id}")
-    public void delete(@PathVariable String id){
-        Map<String,String> messag = getMessage(id);
-        message.remove(messag);
-    }
+
 
 
 }
