@@ -24,13 +24,10 @@ public class RestExerciseController {
         this.exerciseRepo = exerciseRepo;
     }
 
-    @RequestMapping("/wholewariant")
+    @RequestMapping("/findvariantbynomer")
     public List<Map<String,String>> wholeVariant(@RequestParam("nomer") String nomer){
         List<Map<String,String>> serans = new ArrayList<>();
-        Integer qw = Integer.parseInt(nomer);
-        qw=qw+1;
-        String newNomer=qw.toString();
-        for(Exercise exercise: exerciseRepo.findByNomer(newNomer)){
+        for(Exercise exercise: exerciseRepo.findByNomer(nomer)){
             serans.add(new HashMap<String,String>() {{put("nomer",exercise.getNomer());put("textzadania",exercise.getTextzadania());put("uslovie",exercise.getUslovie());put("otvet",exercise.getOtvet());put("text",exercise.getText());}});
 
         }
