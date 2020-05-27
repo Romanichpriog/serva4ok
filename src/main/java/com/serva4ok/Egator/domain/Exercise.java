@@ -13,11 +13,22 @@ public class Exercise {
     private Integer id;
     private String text;
     private String tag;
+    private String nomer;
+
+    public String getNomer() {
+        return nomer;
+    }
+
+    public void setNomer(String nomer) {
+        this.nomer = nomer;
+    }
+
     public Exercise(){}
 
-    public Exercise(String text, String tag) {
+    public Exercise(String text, String tag, String nomer) {
         this.text = text;
         this.tag = tag;
+        this.nomer = nomer;
     }
 
     public Integer getId() {
