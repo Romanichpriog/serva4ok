@@ -3,9 +3,11 @@
 <body>
 <div>
 <form action="\" method="post">
-    <textarea type="text" name="text" placeholder="Введите сообщение"></textarea>
-    <textarea type="text" name="tag" placeholder="Tag"></textarea>
-    <textarea type="text" name="nomer" placeholder="Nomer"></textarea>
+    <input type="text" name="nomer" placeholder="Введите номер задания">
+    <textarea type="text" name="textzadania" placeholder="Введите условие"></textarea>
+    <textarea type="text" name="uslovie" placeholder="Введите текст задания"></textarea>
+    <input type="text" name="otvet" placeholder="введите ответ">
+    <textarea type="text" name="text" placeholder="Введите добаочный текст"></textarea>
         <button type="submit">Добавить</button>
 </form>
 </div>
@@ -13,9 +15,11 @@
 {{#exercises}}
     <div>
         <b>{{id}}</b>
+        <b>{{nomer}}</b>
+        <p>{{textzadania}}</p>
+        <p>{{uslovie}}</p>
+        <b>{{otvet}}</b>
         <p>{{text}}</p>
-        <p>{{tag}}</p>
-        <p>{{nomer}}</p>
     </div>
 {{/exercises}}
 </body>

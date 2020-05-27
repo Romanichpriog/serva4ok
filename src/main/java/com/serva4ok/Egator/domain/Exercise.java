@@ -11,24 +11,18 @@ public class Exercise {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private String text;
-    private String tag;
     private String nomer;
+    private String textzadania;
+    private String uslovie;
+    private String otvet;
+    private String text;
 
-    public String getNomer() {
-        return nomer;
-    }
-
-    public void setNomer(String nomer) {
+    public Exercise(String nomer, String textzadania, String uslovie, String otvet, String text) {
         this.nomer = nomer;
-    }
-
-    public Exercise(){}
-
-    public Exercise(String text, String tag, String nomer) {
+        this.textzadania = textzadania;
+        this.uslovie = uslovie;
+        this.otvet = otvet;
         this.text = text;
-        this.tag = tag;
-        this.nomer = nomer;
     }
 
     public Integer getId() {
@@ -39,19 +33,43 @@ public class Exercise {
         this.id = id;
     }
 
+    public String getNomer() {
+        return nomer;
+    }
+
+    public void setNomer(String nomer) {
+        this.nomer = nomer;
+    }
+
+    public String getTextzadania() {
+        return textzadania;
+    }
+
+    public void setTextzadania(String textzadania) {
+        this.textzadania = textzadania;
+    }
+
+    public String getUslovie() {
+        return uslovie;
+    }
+
+    public void setUslovie(String uslovie) {
+        this.uslovie = uslovie;
+    }
+
+    public String getOtvet() {
+        return otvet;
+    }
+
+    public void setOtvet(String otvet) {
+        this.otvet = otvet;
+    }
+
     public String getText() {
         return text;
     }
 
     public void setText(String text) {
         this.text = text;
-    }
-
-    public String getTag() {
-        return tag;
-    }
-
-    public void setTag(String tag) {
-        this.tag = tag;
     }
 }
