@@ -11,18 +11,13 @@ public class Exercise {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private String nomerZadania;
-    private String textZadania;
-    private String uslovie;
-    private String otvet;
-    private String textDop;
+    private String text;
+    private String tag;
     public Exercise(){}
-    public Exercise(String nomerZadania, String textZadania, String uslovie, String otvet, String textDop) {
-        this.nomerZadania = nomerZadania;
-        this.textZadania = textZadania;
-        this.uslovie = uslovie;
-        this.otvet = otvet;
-        this.textDop = textDop;
+
+    public Exercise(String text, String tag) {
+        this.text = text;
+        this.tag = tag;
     }
 
     public Integer getId() {
@@ -33,44 +28,19 @@ public class Exercise {
         this.id = id;
     }
 
-    public String getNomerZadania() {
-        return nomerZadania;
+    public String getText() {
+        return text;
     }
 
-    public void setNomerZadania(String nomerZadania) {
-        this.nomerZadania = nomerZadania;
+    public void setText(String text) {
+        this.text = text;
     }
 
-    public String getTextZadania() {
-        return textZadania;
+    public String getTag() {
+        return tag;
     }
 
-    public void setTextZadania(String textZadania) {
-        this.textZadania = textZadania;
+    public void setTag(String tag) {
+        this.tag = tag;
     }
-
-    public String getUslovie() {
-        return uslovie;
-    }
-
-    public void setUslovie(String usLovie) {
-        this.uslovie = usLovie;
-    }
-
-    public String getOtvet() {
-        return otvet;
-    }
-
-    public void setOtvet(String otvet) {
-        this.otvet = otvet;
-    }
-
-    public String getTextDop() {
-        return textDop;
-    }
-
-    public void setTextDop(String textDop) {
-        this.textDop = textDop;
-    }
-
 }
