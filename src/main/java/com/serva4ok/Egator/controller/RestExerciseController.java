@@ -13,7 +13,7 @@ public class RestExerciseController {
     @Autowired
     private ExerciseRepo exerciseRepo;
     Iterable<Exercise> exercises = exerciseRepo.findAll();
-    @RequestMapping("/findByNomer")
+    @RequestMapping("/findbynomer")
     public String findByNomer(@RequestParam("nomer") String nomer){
         String result="";
         for(Exercise exercise: exerciseRepo.findByNomer(nomer)){
