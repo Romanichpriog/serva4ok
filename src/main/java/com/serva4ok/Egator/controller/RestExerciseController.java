@@ -40,7 +40,10 @@ public class RestExerciseController {
     @RequestMapping("/test")
     public List<Map<String,String>> test(@RequestParam("nomer") String nomer){
         List<Map<String,String>> serans = new ArrayList<>();
-        for(Exercise exercise: exerciseRepo.findByNomer("5")){
+        Integer wer = Integer.parseInt(nomer);
+        wer=wer+3;
+        nomer=wer.toString();
+        for(Exercise exercise: exerciseRepo.findByNomer(nomer)){
             serans.add(new HashMap<String,String>() {{put("nomer",exercise.getNomer());put("textzadania",exercise.getTextzadania());put("uslovie",exercise.getUslovie());put("otvet",exercise.getOtvet());put("text",exercise.getText());}});
 
         }
