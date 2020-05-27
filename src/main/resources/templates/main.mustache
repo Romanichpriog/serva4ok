@@ -3,8 +3,12 @@
 <body>
 <div>
 <form action="\" method="post">
-    <textarea type="text" name="text" placeholder="Введите сообщение"></textarea>
-    <textarea type="text" name="tag" placeholder="Tag"></textarea>
+    <input type="text" name="nomerZadania" placeholder="Введите номер задания">
+    <textarea type="text" name="textZadania" placeholder="textZadania"></textarea>
+    <textarea type="text" name="Uslovie" placeholder="uslovie"></textarea>
+    <input type="text" name="otvet" placeholder="Введите ответ">
+    <textarea type="text" name="dopText" placeholder="dopText"></textarea>
+
         <button type="submit">Добавить</button>
 </form>
 </div>
@@ -12,6 +16,9 @@
 {{#exercises}}
     <div>
         <b>{{id}}</b>
+        <b>{{nomerZadania}}</b>
+        <p>{{textZadania}}</p>
+        <p>{{te}}</p>
         <p>{{text}}</p>
         <p>{{tag}}</p>
     </div>
