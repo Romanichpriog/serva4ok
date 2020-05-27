@@ -1,12 +1,17 @@
 package com.serva4ok.Egator.domain;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
+import javax.persistence.*;
 
 @Entity
+@Table
+@Data
+@ToString(of={"nomer","textzadania","uslovie","otvet","text"})
+
 public class Exercise {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
