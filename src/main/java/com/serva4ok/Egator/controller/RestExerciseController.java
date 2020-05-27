@@ -20,8 +20,8 @@ public class RestExerciseController {
         this.exerciseRepo = exerciseRepo;
     }
 
-    @RequestMapping("{nomer}")
-    public Exercise findByNomer(@PathVariable("nomer") Exercise exercise){
+    @RequestMapping("{id}")
+    public Exercise findByNomer(@PathVariable("id") Exercise exercise){
         return exercise;
 
 
