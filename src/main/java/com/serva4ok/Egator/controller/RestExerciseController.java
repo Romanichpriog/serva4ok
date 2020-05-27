@@ -7,6 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 @RestController
 @RequestMapping("get")
 public class RestExerciseController {
@@ -20,12 +25,17 @@ public class RestExerciseController {
     }
 
     @RequestMapping("/findbynomer")
-    public String findByNomer(@RequestParam("nomer") String nomer){
-        String result="";
+    public List<Map<String,String>> findByNomer(@RequestParam("nomer") String nomer){
+        List<Map<String,String>> serans = new ArrayList<>();
+
+
+
+
         for(Exercise exercise: exerciseRepo.findByNomer(nomer)){
-            result+= exercise.toString();
+            serans.add(new HashMap<String,String>() {{put("nomer",exercise.getNomer());put("textzadania",exercise.getTextzadania());put("uslovie",exercise.getUslovie());put("otvet",exercise.getOtvet());put("text",exercise.getText());}});
+
         }
-        return result;
+        return serans;
 
     }
 
