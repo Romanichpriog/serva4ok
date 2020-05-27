@@ -1,7 +1,5 @@
 package com.serva4ok.Egator.controller;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.serva4ok.Egator.domain.Exercise;
 import com.serva4ok.Egator.repos.ExerciseRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,15 +25,10 @@ public class RestExerciseController {
     }
 
     @RequestMapping("/findbynomer")
-    public List<String> findByNomer(@RequestParam("nomer") String nomer){
-        List<String> serans = new ArrayList<>();
-        GsonBuilder builder = new GsonBuilder();
-        Gson gson = builder.create();
+    public List<Map<String,String>> findByNomer(@RequestParam("nomer") String nomer){
+        List<Map<String,String>> serans = new ArrayList<>();
         for(Exercise exercise: exerciseRepo.findByNomer(nomer)){
-
-            serans.add(gson.toJson(exercise));
-
-
+            serans.add(new HashMap<String,String>() {{put("nomer",exercise.getNomer());put("textzadania",exercise.getTextzadania());put("uslovie",exercise.getUslovie());put("otvet",exercise.getOtvet());put("text",exercise.getText());}});
 
         }
         return serans;
