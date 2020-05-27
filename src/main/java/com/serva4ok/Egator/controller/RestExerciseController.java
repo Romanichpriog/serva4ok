@@ -26,10 +26,11 @@ public class RestExerciseController {
 
     @RequestMapping("/wholewariant")
     public List<Map<String,String>> wholeVariant(@RequestParam("nomer") String nomer){
-        List<Map<String,String>> serans = new ArrayList<>();
+        List<Map<String,String>> serans;
         List<Map<String,String>> polnie= new ArrayList<>();
         for (int i=1;i<27;i++) {
             Integer io=i;
+            serans= new ArrayList<>();
 
 
             for (Exercise exercise : exerciseRepo.findByNomer(io.toString())) {
