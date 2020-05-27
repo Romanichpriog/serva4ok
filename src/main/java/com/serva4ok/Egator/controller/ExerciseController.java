@@ -30,14 +30,15 @@ public class ExerciseController {
         return "main";
     }
     @PostMapping
-    public String add(@RequestParam String nomer,@RequestParam String textzadania,@RequestParam String uslovie, @RequestParam String otvet, @RequestParam String text, Map<String,Object> model){
+    public String add(@RequestParam String nomer, @RequestParam String textzadania, @RequestParam String uslovie, @RequestParam String otvet, @RequestParam String text, Map<String,Object> model){
         Exercise exercise = new Exercise(nomer,textzadania,uslovie,otvet,text);
         exerciseRepo.save(exercise);
         Iterable<Exercise> exercises = exerciseRepo.findAll();
         model.put("exercises",exercises);
+
+
+
         return "main";
-
-
     }
 
 

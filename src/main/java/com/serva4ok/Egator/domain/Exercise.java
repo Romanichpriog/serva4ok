@@ -27,6 +27,8 @@ public class Exercise {
         this.text = text;
     }
 
+    public Exercise(){}
+
 
 
     public Integer getId() {
