@@ -24,8 +24,10 @@ public class RestExerciseController {
         this.exerciseRepo = exerciseRepo;
     }
 
-    @RequestMapping("/findvariantbynomer")
-    public List<Map<String,String>> wholeVariant(@RequestParam("nomer") String nomer){
+
+
+    @RequestMapping("/findbynomer")
+    public List<Map<String,String>> findByNomer(@RequestParam("nomer") String nomer){
         List<Map<String,String>> serans = new ArrayList<>();
         for(Exercise exercise: exerciseRepo.findByNomer(nomer)){
             serans.add(new HashMap<String,String>() {{put("nomer",exercise.getNomer());put("textzadania",exercise.getTextzadania());put("uslovie",exercise.getUslovie());put("otvet",exercise.getOtvet());put("text",exercise.getText());}});
@@ -35,10 +37,10 @@ public class RestExerciseController {
 
     }
 
-    @RequestMapping("/findbynomer")
-    public List<Map<String,String>> findByNomer(@RequestParam("nomer") String nomer){
+    @RequestMapping("/test")
+    public List<Map<String,String>> test(@RequestParam("nomer") String nomer){
         List<Map<String,String>> serans = new ArrayList<>();
-        for(Exercise exercise: exerciseRepo.findByNomer(nomer)){
+        for(Exercise exercise: exerciseRepo.findByNomer("5")){
             serans.add(new HashMap<String,String>() {{put("nomer",exercise.getNomer());put("textzadania",exercise.getTextzadania());put("uslovie",exercise.getUslovie());put("otvet",exercise.getOtvet());put("text",exercise.getText());}});
 
         }
