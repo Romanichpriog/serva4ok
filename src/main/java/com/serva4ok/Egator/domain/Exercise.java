@@ -13,14 +13,14 @@ public class Exercise {
     private Integer id;
     private String nomerZadania;
     private String textZadania;
-    private String usLovie;
+    private String uslovie;
     private String otvet;
     private String textDop;
     public Exercise(){}
-    public Exercise(String nomerZadania, String textZadania, String usLovie, String otvet, String textDop) {
+    public Exercise(String nomerZadania, String textZadania, String uslovie, String otvet, String textDop) {
         this.nomerZadania = nomerZadania;
         this.textZadania = textZadania;
-        this.usLovie = usLovie;
+        this.uslovie = uslovie;
         this.otvet = otvet;
         this.textDop = textDop;
     }
@@ -49,12 +49,12 @@ public class Exercise {
         this.textZadania = textZadania;
     }
 
-    public String getUsLovie() {
-        return usLovie;
+    public String getUslovie() {
+        return uslovie;
     }
 
-    public void setUsLovie(String usLovie) {
-        this.usLovie = usLovie;
+    public void setUslovie(String usLovie) {
+        this.uslovie = usLovie;
     }
 
     public String getOtvet() {
