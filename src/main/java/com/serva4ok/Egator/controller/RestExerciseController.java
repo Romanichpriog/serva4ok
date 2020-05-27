@@ -12,9 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class RestExerciseController {
     @Autowired
     private ExerciseRepo exerciseRepo;
-    Iterable<Exercise> exercises = exerciseRepo.findAll();
+
     @RequestMapping("/findbynomer")
     public String findByNomer(@RequestParam("nomer") String nomer){
+        Iterable<Exercise> exercises = exerciseRepo.findAll();
         String result="";
         for(Exercise exercise: exerciseRepo.findByNomer(nomer)){
             result+= exercise.toString()+"<br>";
