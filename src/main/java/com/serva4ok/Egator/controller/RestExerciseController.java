@@ -23,7 +23,7 @@ public class RestExerciseController {
     public String findByNomer(@RequestParam("nomer") String nomer){
         String result="";
         for(Exercise exercise: exerciseRepo.findByNomer(nomer)){
-            result+= exercise.toString()+"<br>";
+            result+= exercise.toString();
         }
         return result;
 
