@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Map;
 
-@Controller
+@Controller("add")
 
 public class ExerciseController {
     @Autowired
