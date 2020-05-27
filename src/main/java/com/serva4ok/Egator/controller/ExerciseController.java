@@ -3,10 +3,8 @@ package com.serva4ok.Egator.controller;
 
 import com.serva4ok.Egator.domain.Exercise;
 import com.serva4ok.Egator.repos.ExerciseRepo;
-import com.sun.tools.jdeps.JdepsFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;

@@ -17,6 +17,8 @@ public class Exercise {
     private String otvet;
     private String text;
 
+    public Exercise(){}
+
     public Exercise(String nomer, String textzadania, String uslovie, String otvet, String text) {
         this.nomer = nomer;
         this.textzadania = textzadania;
