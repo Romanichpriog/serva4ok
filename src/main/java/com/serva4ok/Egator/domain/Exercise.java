@@ -17,7 +17,7 @@ public class Exercise {
     private String otvet;
     private String text;
 
-    public Exercise(){}
+
 
     public Exercise(String nomer, String textzadania, String uslovie, String otvet, String text) {
         this.nomer = nomer;
@@ -26,6 +26,8 @@ public class Exercise {
         this.otvet = otvet;
         this.text = text;
     }
+
+
 
     public Integer getId() {
         return id;
